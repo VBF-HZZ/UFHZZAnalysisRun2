@@ -26,13 +26,16 @@ git clone https://github.com/cms-analysis/HiggsAnalysis-ZZMatrixElement.git ZZMa
 (cd ZZMatrixElement; git checkout -b from-v220 v2.2.0)
 # replace ZZMatrixElement/MELA/setup.sh -j 8
 pushd ${CMSSW_BASE}/src/ZZMatrixElement/MELA/COLLIER/
-  pkgname="collier-1.2"
-  pkgdir="COLLIER-1.2"
+  #  pkgname="collier-1.2"
+  pkgname="collier-1.2.4"
+  pkgdir="COLLIER-1.2.4"
   tarname=$pkgname".tar.gz"
-  tarweb="https://www.hepforge.org/archive/collier/"$tarname
+  tarweb="https://collier.hepforge.org/downloads/?f="$tarname
+#  tarweb="https://www.hepforge.org/archive/collier/"$tarname
   libname="libcollier.so"
   tmpdir="colliertmp"
-  wget $tarweb
+  wget $tarweb -O $tarname
+#  wget $tarweb
   mkdir $tmpdir
   tar -xvzf $tarname -C $tmpdir
   rm $tarname
